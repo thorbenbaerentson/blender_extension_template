@@ -70,10 +70,10 @@ Using the loacation obtained using the 'show'-Command we can tell python where t
 import sys
 packages_path = "c:\\users\\{user}}\\appdata\\roaming\\python\\python311\\site-packages"
 sys.path.insert(0, packages_path)
-# Then import the modules
+# Then import the module
 from atudomain.git import Git
 ```
 Now we can use the package in our code.
 
 ## Use Visual Studio Code
-If you are serious about developing extensions for Blende consider using Visual Studio Code with the extension for Blender Development [Blender Development Extension](https://github.com/JacquesLucke/blender_vscode). This allows use to use the python debugger while running a Blender instance and testing your extension.
+If you are serious about developing extensions for Blender consider using Visual Studio Code with [Blender Development Extension](https://github.com/JacquesLucke/blender_vscode). This allows you to use the python debugger while running a Blender instance and testing your extension.The extension will install the python debugger for Blender once you start Blender from inside Visual Studio Code. In order for this install to succeed you might have to run Visual Studio Code as an administrator. After the debugger has been installed successfully VS Code can be run with normal privileges.
