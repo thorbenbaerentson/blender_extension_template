@@ -34,7 +34,7 @@ Inside your Blender folder should be a folder called 'python' and inside that fo
 python -m pip install atudomain-git --user
 ```
 Replace 'atudomain-git' with the name of the package you want to install. Pip should download the package and its dependencies and return with a message indicating success. Under Winwdows it should look like this:
-![successfully installation](https://github.com/thorbenbaerentson/blender_extension_template/tree/main/images/install_package.png "Successfull installation")
+![successfully installation](https://github.com/thorbenbaerentson/blender_extension_template/blob/main/images/install_package.png "Successfull installation")
 
 ### Locate the package on disk
 In order to use the newly installed package we must tell python where to look for that package. To find out where the package was installed we can use the command pip show <package>.
@@ -42,7 +42,7 @@ In order to use the newly installed package we must tell python where to look fo
 python -m pip show atudomain-git
 ```
 Again replace atudomain-git with the name of the package you want to install. This command returns some information about the package. Among these information is value called 'Location'. This is the path where pip installed the package to. 
-![show package](https://github.com/thorbenbaerentson/blender_extension_template/tree/main/images/show_package.png "Show package")
+![show package](https://github.com/thorbenbaerentson/blender_extension_template/blob/main/images/show_package.png "Show package")
 
 ### Importing the package
 Using the loacation obtained using the 'show'-Command we can tell python where to look for the newly installed package. 
@@ -54,4 +54,4 @@ sys.path.insert(0, packages_path)
 # Then import the modules
 from atudomain.git import Git
 ```
-Now we can use the package inside our code.
+Now we can use the package in our code.
