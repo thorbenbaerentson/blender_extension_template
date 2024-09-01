@@ -7,6 +7,18 @@ import sys
 import importlib
 import os
 
+# ----- YOUR MODULES GO HERE ------
+# Add further modules here. Each module must be a single python-file
+# with its own register and unregister function. The module name is the
+# name of the python file without extension.
+#
+# Further reading: 
+# https://b3d.interplanety.org/en/creating-multifile-add-on-for-blender/
+modulesNames = [
+    'MarkSelectedAsAsset',
+    'OBJECT_MT_ExampleMenu',
+]
+
 # Import current source directory to path so we can import modules from the current source directory.
 # This is needed if we want to import files, that do not contain a register and unregister function.
 dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -37,18 +49,6 @@ bl_info = {
     "blender": (4, 00, 0),
     "category": "Object",
 }
-
-# ----- YOUR MODULES GO HERE ------
-# Add further modules here. Each module must be a single python-file
-# with its own register and unregister function. The module name is the
-# name of the python file without extension.
-#
-# Further reading: 
-# https://b3d.interplanety.org/en/creating-multifile-add-on-for-blender/
-modulesNames = [
-    'MarkSelectedAsAsset',
-    'OBJECT_MT_ExampleMenu',
-]
 
 # Get the full name for each module and append it to modulesFullNames ...
 modulesFullNames = {}

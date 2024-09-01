@@ -1,7 +1,9 @@
 # Table of Contents
 - [Introduction](#blender-extension-template)
+- [Usage](#usage)
 - [Tips](#tips)
     - [Development extras](#development-extras)
+    - [Searching for UI-Elements](#searching-for-ui-Elements)
     - [Using python packages](#using-python-packages)
 
 # Blender Extension Template
@@ -10,17 +12,17 @@ This template is intended to help speed up blender extension development with py
 - interact with Blender UI
 - divide code into separate modules and utilize them
 
-__init__.py contains further information on the topics above.
+'__init__.py' contains further information on the topics above.
 
 # Usage
-Write your code in separate files. Best pratice is to put operators, menus, views etc. everything that needs a register and unregister function into its own file. Then the modules can be initialized from __init__.py by adding the module to the 'modulesNames' array (have a look at the example).
+Place your code in separate files. Best pratice is to put operators, menus, views etc. everything that needs a register and unregister function into its own file and let '__init__.py' initialize the modules by adding the module to the 'modulesNames' array inside '__init__.py'.
 
 Usually you can remove the lines:
 ```python
 dir_path = os.path.dirname(os.path.realpath(__file__))
 sys.path.insert(0, dir_path)
 ```
-These lines add your extension folder to the path. This is necessary if you´re using source files in your project, that are not registered with Blender. In order for Blender to find these files thy need to be in the path.
+These lines add your extension folder to the path. This is necessary if you´re using source files in your project, that are not registered with Blender. In order for Blender to find these files thy need to be on the path.
 
 # Tips
 ## Development extras
@@ -28,7 +30,13 @@ If you start out with add-on development make sure to enable 'Python Tooltips' a
 
 *Edit -> Preferences -> Interface*.
 
-With that functionality enabled you can right click on a menu item and review its code. This is helpful, if you want to integrate your operators with the existing blender UI. As it is done in *OBJECT_MT_ExampleMenu.py*. The name of the menu 'VIEW3D_MT_object_asset' was found by inspecting the source code of the corresponding menu script.
+With that functionality enabled you can right click on a menu item and review its code. This is helpful, if you want to integrate your operators with the existing blender UI. As it is done in *OBJECT_MT_ExampleMenu.py*. The name of the menu 'VIEW3D_MT_object_asset' was found by inspecting the source code of the corresponding menu script. 
+
+## Searching for UI-Elements
+Make sure 'Development Extras' and 'Python Tooltips' are enabled (refer to [Development extras](#development-extras)). Next, navigate to the 'Scripting' tTab and right-click on the menu item you wish to investigate. This will open the UI-Script for the selected UI element in the scripting editor. You can then search for it using Ctrl + F. The display name of the menu or sub-menu item is encoded in the menu class under the 'bl_label' field, for example:
+```python
+bl_label = "Align View to Active"
+```
 
 ## Using python packages
 It is possible (although, not very convenient) to use pip packages with the python installation that comes with blender. Pip is by default part of the bundled python installation. 
