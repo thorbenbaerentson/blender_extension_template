@@ -12,6 +12,7 @@ import os
 dir_path = os.path.dirname(os.path.realpath(__file__))
 sys.path.insert(0, dir_path)
 
+# This file simply prints a message to the console on load.
 import ImportTest
 
 # This is a sample add-on to demonstrate how add-ons are implemented in Blender. The functionality itself is 
@@ -37,8 +38,11 @@ bl_info = {
     "category": "Object",
 }
 
-# Add further modules here. In this context each module must be a single python-file
-# with its own register and unregister function.
+# ----- YOUR MODULES GO HERE ------
+# Add further modules here. Each module must be a single python-file
+# with its own register and unregister function. The module name is the
+# name of the python file without extension.
+#
 # Further reading: 
 # https://b3d.interplanety.org/en/creating-multifile-add-on-for-blender/
 modulesNames = [
@@ -51,7 +55,7 @@ modulesFullNames = {}
 for currentModuleName in modulesNames:
     modulesFullNames[currentModuleName] = ('{}.{}'.format(__name__, currentModuleName))
  
-# ... tben import or reload these modules.
+# ... then import or reload these modules.
 for currentModuleFullName in modulesFullNames.values():
     if currentModuleFullName in sys.modules:
         importlib.reload(sys.modules[currentModuleFullName])

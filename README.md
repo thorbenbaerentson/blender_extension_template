@@ -12,6 +12,16 @@ This template is intended to help speed up blender extension development with py
 
 __init__.py contains further information on the topics above.
 
+# Usage
+Write your code in separate files. Best pratice is to put operators, menus, views etc. everything that needs a register and unregister function into its own file. Then the modules can be initialized from __init__.py by adding the module to the 'modulesNames' array (have a look at the example).
+
+Usually you can remove the lines:
+```python
+dir_path = os.path.dirname(os.path.realpath(__file__))
+sys.path.insert(0, dir_path)
+```
+These lines add your extension folder to the path. This is necessary if you´re using source files in your project, that are not registered with Blender. In order for Blender to find these files thy need to be in the path.
+
 # Tips
 ## Development extras
 If you start out with add-on development make sure to enable 'Python Tooltips' and 'Development Extras' under:
@@ -33,7 +43,7 @@ Inside your Blender folder should be a folder called 'python' and inside that fo
 ```
 python -m pip install atudomain-git --user
 ```
-Replace 'atudomain-git' with the name of the package you want to install. Pip should download the package and its dependencies and return with a message indicating success. Under Winwdows it should look like this:
+Replace 'atudomain-git' with the name of the package you want to install. Pip should download the package and its dependencies and return with a message indicating success. In Winwdows it should look like this:
 ![successfully installation](https://github.com/thorbenbaerentson/blender_extension_template/blob/main/images/install_package.png "Successfull installation")
 
 ### Locate the package on disk
