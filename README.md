@@ -5,6 +5,7 @@
     - [Development extras](#development-extras)
     - [Searching for UI-Elements](#searching-for-ui-Elements)
     - [Using python packages](#using-python-packages)
+    - [Use Visual Studio Code](#use-visual-studio-code)
 
 # Blender Extension Template
 This template is intended to help speed up blender extension development with python. The template is itself a working operator, that demonstrates how to:
@@ -73,3 +74,6 @@ sys.path.insert(0, packages_path)
 from atudomain.git import Git
 ```
 Now we can use the package in our code.
+
+## Use Visual Studio Code
+If you are serious about developing extensions for Blende consider using Visual Studio Code with the extension for Blender Development [Blender Development Extension](https://github.com/JacquesLucke/blender_vscode). This allows use to use the python debugger while running a Blender instance and testing your extension.
